@@ -14,9 +14,10 @@ jobs:
           remove-haskell: 'true'
 
       - name: Gitlab Runner
-        uses: edersonbrilhante/gitlab-runner-action@main
+        uses: fernandotonon/gitlab-runner-action@main
         with:
           registration-token: "${{ github.event.client_payload.registration_token }}"
           docker-image: "docker:19.03.12"
           name: ${{ github.run_id }}
+          url: "${{ github.event.client_payload.url }}"
           tag-list: "crosscicd"
